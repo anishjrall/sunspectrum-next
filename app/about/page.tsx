@@ -1,0 +1,13 @@
+import Link from 'next/link';
+
+export const metadata={title:'About'};
+
+const clients = [
+  { name: 'JSS Mahavidyapeetha, Mysore – All Campuses', src: '/images/clients/jss-mahavidyapeetha-mysore.png' },
+  { name: 'B V V Sangha, Bagalkote – All Campuses', src: '/images/clients/bvv-sangha-bagalkote.png' },
+  { name: 'Emmvee Photovoltaic Power Limited, Bengaluru', src: '/images/clients/emmvee-solar-bengaluru.png' },
+  { name: 'Dayananda Sagar University (DSU) – Main Campus, Harohalli', src: '/images/clients/dayananda-sagar-university-harohalli.png' },
+  { name: 'Saurdarshan Solar', src: '/images/clients/saurdharshan-solar.png' },
+];
+
+export default function About(){return <main><section className="page-hero"><div className="container"><span className="eyebrow">About Sunspectrum</span><h1>Practical engineering. Long-term service.</h1><p>A Karnataka-based water and energy solutions provider serving residential, commercial and agricultural customers.</p></div></section><section className="section"><div className="container"><div className="about-copy"><div><span className="eyebrow">The company</span><h2>Built around installation, service and field experience.</h2></div><div><p>Sunspectrum Enterprises supplies and installs Solar Water Heaters, RO Plants, Heat Pumps, Water Softeners, Solar Panels, Purifiers and Solar Pump Sets.</p><p>The company also supplies and installs Saurdarshan Solar glass-line solar water heaters, with a focus on durability, hard-water resistance and long service life.</p><p>Services cover consultation, installation and after-sales support for homes, apartments, hotels and commercial setups throughout Karnataka.</p><p>The stated mission is to help customers reduce electricity use while improving hot-water availability and water quality through dependable products and professional service.</p></div></div></div></section><section className="section"><div className="container"><div className="section-head"><span className="eyebrow">Clients</span><div><h2>Selected organisations named in the company portfolio.</h2></div></div><div className="client-list">{clients.map(({name,src})=><div className="client-logo-card" key={name}><img src={src} alt={name}/><span>{name}</span></div>)}</div></div></section><section className="section"><div className="container"><div className="section-head"><span className="eyebrow">Coverage</span><div><h2>Service across Karnataka.</h2><p>Bengaluru, Mysuru, Bagalkote, Hubli-Dharwad, Mangaluru, Belagavi, Kalaburagi and other districts.</p><Link className="button button-black" href="/#contact">Contact the team ↗</Link></div></div></div></section></main>}

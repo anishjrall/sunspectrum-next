@@ -1,0 +1,4 @@
+import Link from 'next/link';
+import { products } from '@/lib/data';
+export const metadata={title:'Products'};
+export default function Products(){return <main><section className="page-hero"><div className="container"><span className="eyebrow">Products</span><h1>Systems for water, energy and utility needs.</h1><p>Product information carried over from the existing Sunspectrum catalogue, presented in a cleaner format.</p></div></section><section className="section"><div className="container"><div className="product-index">{Object.entries(products).map(([slug,p],i)=><article className="product-card" key={slug}><div><span className="product-code">PRODUCT {String(i+1).padStart(2,'0')}</span><h2>{p.title}</h2><p>{p.desc}</p></div><Link href={`/products/${slug}`}>View product ↗</Link></article>)}</div></div></section></main>}

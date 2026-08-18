@@ -1,0 +1,6 @@
+'use client';
+import { FormEvent } from 'react';
+export default function ContactForm(){
+  function submit(e:FormEvent<HTMLFormElement>){e.preventDefault();const f=new FormData(e.currentTarget);const msg=`Hello Sunspectrum Enterprises,\n\nName: ${f.get('name')}\nCompany: ${f.get('company')}\nPhone: ${f.get('phone')}\nService: ${f.get('service')}\nProject details: ${f.get('message')}`;window.open(`https://wa.me/918329298004?text=${encodeURIComponent(msg)}`,'_blank','noopener,noreferrer');}
+  return <form className="contact-form" onSubmit={submit}><div className="form-row"><input name="name" placeholder="Your name" required/><input name="company" placeholder="Company name" required/></div><div className="form-row"><input name="phone" type="tel" placeholder="Phone number" required/><select name="service" defaultValue="" required><option value="" disabled>Select service</option><option>Solar Solutions</option><option>Water Treatment</option><option>Pumping Systems</option><option>EPC Services</option><option>Electrical Solutions</option></select></div><textarea name="message" placeholder="Site, capacity, location and timeline" required/><button type="submit" className="button button-black">Send project details <span>↗</span></button></form>
+}
