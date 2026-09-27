@@ -67,6 +67,10 @@ export default function SiteFooter() {
       +91 83292 98004
     </a>
 
+    <a href="tel:+917353131310">
+      +91 73531 31310
+    </a>
+
     <a
       href="https://wa.me/918329298004"
       target="_blank"
@@ -86,23 +90,25 @@ export default function SiteFooter() {
       </span>
 
       <p className="mt-1.5 text-[11px] leading-[1.65] text-white/40">
-        No.124, Kasaba Hobli,
+        1088, 6th Main, E and F Block,
         <br />
-        Rayankere Post, Kote Hundi,
+        Ramakrishna Nagar,
         <br />
-        Mysuru, Karnataka 570008
+        Mysore - 570022
+        <br />
+        Near Andolana Circle
       </p>
 
       {/* Mini Map */}
       <a
-        href="https://maps.app.goo.gl/EAXRKwYfNcxUNZA88"
+        href="https://maps.google.com/maps?q=12.2840129%2C76.6166227&z=17&hl=en"
         target="_blank"
         rel="noreferrer"
         className="group relative mt-3 block h-[145px] w-full overflow-hidden border border-white/10"
       >
         <iframe
           title="SunSpectrum Enterprises Office Location"
-          src="https://www.google.com/maps?q=No.124,+Kasaba+Hobli,+Rayankere+Post,+Kote+Hundi,+Mysuru,+Karnataka+570008&output=embed"
+          src="https://maps.google.com/maps?q=12.2840129%2C76.6166227&z=17&hl=en&output=embed"
           className="pointer-events-none h-full w-full border-0 grayscale-[25%] opacity-75 transition duration-300 group-hover:opacity-90"
           loading="lazy"
         />
@@ -112,7 +118,7 @@ export default function SiteFooter() {
       </a>
 
       <a
-        href="https://maps.app.goo.gl/EAXRKwYfNcxUNZA88"
+        href="https://maps.google.com/maps?q=12.2840129%2C76.6166227&z=17&hl=en"
         target="_blank"
         rel="noreferrer"
         className="mt-2 inline-block text-[9px] font-extrabold tracking-[.08em] text-[#d6ad58] uppercase transition hover:text-white"

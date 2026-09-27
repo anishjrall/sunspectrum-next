@@ -119,6 +119,14 @@ export default async function ProductPage({ params }: Props) {
                 </a>
 
                 <a
+                  href="tel:+917353131310"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 border border-[#cfd7d1] bg-white px-5 text-[10px] font-extrabold tracking-[.07em] text-[#073d2d] uppercase transition hover:border-[#073d2d]"
+                >
+                  <PhoneIcon className="h-4 w-4" />
+                  +91 73531 31310
+                </a>
+
+                <a
                   href="https://wa.me/918329298004"
                   target="_blank"
                   rel="noreferrer"

@@ -39,12 +39,11 @@ export default function SiteHeader() {
             <span>Engineering</span>
           </div>
 
-          <a
-            href="tel:+918329298004"
-            className="shrink-0 text-[8px] font-bold tracking-[.04em] sm:text-[10px] sm:tracking-[.08em]"
-          >
-            +91 83292 98004
-          </a>
+          <div className="flex shrink-0 items-center gap-2 text-[8px] font-bold tracking-[.04em] sm:gap-3 sm:text-[10px] sm:tracking-[.08em]">
+            <a href="tel:+918329298004">+91 83292 98004</a>
+            <span className="text-[#d6ad58]">·</span>
+            <a href="tel:+917353131310">+91 73531 31310</a>
+          </div>
         </div>
       </div>
 

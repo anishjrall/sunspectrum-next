@@ -46,18 +46,25 @@ export default function RootLayout({
     "@type": "LocalBusiness",
     name: "Sunspectrum Enterprises",
     url: "https://sunspectrumenterprises.in",
-    telephone: "+918329298004",
+    telephone: ["+918329298004", "+917353131310"],
     email: "sunspectrum01@gmail.com",
 
     address: {
       "@type": "PostalAddress",
-      streetAddress: "No.124, Kasaba Hobli, Rayankere Post, Kote Hundi",
-      addressLocality: "Mysuru",
+      streetAddress: "1088, 6th Main, E and F Block, Ramakrishna Nagar",
+      addressLocality: "Mysore",
       addressRegion: "Karnataka",
-      postalCode: "570008",
+      postalCode: "570022",
       addressCountry: "IN",
     },
 
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 12.2840129,
+      longitude: 76.6166227,
+    },
+    hasMap:
+      "https://maps.google.com/maps?q=12.2840129%2C76.6166227&z=17&hl=en",
     openingHours: "Mo-Sa 09:00-20:00",
     areaServed: "Karnataka",
   };

@@ -334,6 +334,33 @@ Requirement: ${requirement}`;
             Call us
           </a>
 
+          <a
+            href="tel:+917353131310"
+            className="
+              mt-1.5
+              flex
+              min-h-10
+              items-center
+              justify-center
+              gap-1.5
+              border
+              border-[#d7ddd8]
+              text-[10px]
+              font-extrabold
+              text-[#073d2d]
+              transition
+              hover:bg-[#f5f7f4]
+
+              sm:mt-2
+              sm:min-h-12
+              sm:gap-2
+              sm:text-[11px]
+            "
+          >
+            <PhoneIcon />
+            +91 73531 31310
+          </a>
+
           <p
             className="
               mt-2

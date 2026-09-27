@@ -2,11 +2,14 @@ export const site = {
   name: "Sunspectrum Enterprises",
   phone: "+91 83292 98004",
   phoneHref: "tel:+918329298004",
+  secondaryPhone: "+91 73531 31310",
+  secondaryPhoneHref: "tel:+917353131310",
   whatsapp: "https://wa.me/918329298004",
   email: "sunspectrum01@gmail.com",
-  maps: "https://maps.app.goo.gl/EAXRKwYfNcxUNZA88",
+  maps: "https://maps.google.com/maps?q=12.2840129%2C76.6166227&z=17&hl=en",
   address:
-    "No.124, Kasaba Hobli, Rayankere Post, Kote Hundi, Mysuru, Karnataka 570008",
+    "1088, 6th Main, E and F Block, Ramakrishna Nagar, Mysore - 570022",
+  landmark: "Near Andolana Circle",
   hours: "Monday to Saturday, 9:00 AM to 8:00 PM",
 };
 
@@ -63,7 +66,7 @@ export const projects = [
     tech: "Solar modules, inverter integration, net metering.",
     measure: "400 kW executed in 8 weeks.",
     result: "Significant operating cost reduction.",
-    image: "/images/products/solar-panels.jpg",
+    image: "/images/products/solar-pv/solar-panels.png",
   },
 
   {
@@ -75,7 +78,7 @@ export const projects = [
     tech: "RO skid, food-grade tanks, filtration controls.",
     measure: "Delivered within 3 months.",
     result: "Clean water for large campus operations.",
-    image: "/images/products/commercial-ro-plant.jpg",
+    image: "/images/products/ro-plant/ro-plant.png",
   },
 
   {
@@ -87,7 +90,7 @@ export const projects = [
     tech: "DC pumping, panel array, protection systems.",
     measure: "5 HP equivalent system.",
     result: "Zero dependency on grid electricity.",
-    image: "/images/products/solar-pump-set-agriculture.jpg",
+    image: "/images/products/pumps/solar-pump-set.png",
   },
 
   {
@@ -99,7 +102,7 @@ export const projects = [
     tech: "FRP vessels, valves, regeneration controls.",
     measure: "Installed and commissioned in 4 weeks.",
     result: "Better equipment life and guest experience.",
-    image: "/images/products/commercial-water-softener.jpg",
+    image: "/images/products/commercial-water-softener/commercial-water-softener.png",
   },
 ];
 
@@ -146,7 +149,7 @@ export const products = {
       "Suitable for villas & apartments",
       "Available in multiple capacities",
     ],
-    image: "/images/products/water-softener-system.jpg",
+    image: "/images/products/domestic-water-softener/domestic-water-softener.png",
   },
 
   ro: {
@@ -159,7 +162,7 @@ export const products = {
       "Wall & floor mount",
       "Commercial options available",
     ],
-    image: "/images/products/commercial-ro-plant.jpg",
+    image: "/images/products/ro-plant/ro-plant.png",
   },
 
   solar: {
@@ -172,7 +175,7 @@ export const products = {
       "Long life",
       "Multiple litre options",
     ],
-    image: "/images/products/solar-water-heater-system.jpg",
+    image: "/images/products/solar-water-heater/solar-water-heater.png",
   },
 
   commercial: {
@@ -185,7 +188,7 @@ export const products = {
       "Durable FRP tanks",
       "Low salt consumption",
     ],
-    image: "/images/products/commercial-water-softener.jpg",
+    image: "/images/products/commercial-water-softener/commercial-water-softener.png",
   },
 
   heatpump: {
@@ -198,7 +201,21 @@ export const products = {
       "Compact design",
       "5 year warranty",
     ],
-    image: "/images/products/heat-pump-water-heater.jpg",
+    image: "/images/products/air-source-heat-pump-domestic/air-source-heat-pump.png",
+  },
+
+  commercialHeatpump: {
+    title: "Commercial Air Source Heat Pump",
+    desc: "High-capacity air-source heat pump systems for commercial hot water.",
+    specs: [
+      "Efficient commercial hot water",
+      "Lower operating costs",
+      "Works in all weather",
+      "Suitable for hotels and institutions",
+      "Professional installation support",
+    ],
+    image:
+      "/images/products/air-source-heat-pump-commercial/commercial-air-source-heat-pump.png",
   },
 
   panel: {
@@ -211,7 +228,7 @@ export const products = {
       "Net metering support",
       "Government subsidy eligible",
     ],
-    image: "/images/products/solar-panels.jpg",
+    image: "/images/products/solar-pv/solar-panels.png",
   },
 
   purifier: {
@@ -224,7 +241,7 @@ export const products = {
       "Wall mount design",
       "Yearly maintenance contract",
     ],
-    image: "/images/products/domestic-water-purifier.jpg",
+    image: "/images/products/domestic-water-purifier/domestic-water-purifier.png",
   },
 
   pump: {
@@ -237,7 +254,48 @@ export const products = {
       "Automatic start/stop",
       "5 year pump warranty",
     ],
-    image: "/images/products/solar-pump-set-agriculture.jpg",
+    image: "/images/products/pumps/solar-pump-set.png",
+  },
+
+  commercialSolar: {
+    title: "Commercial Solar Water Heater",
+    desc: "Solar hot water systems for commercial and institutional use.",
+    specs: [
+      "Large-capacity hot water generation",
+      "Reduces electricity consumption",
+      "Suitable for hotels and campuses",
+      "Reliable collector and tank system",
+      "Installation and commissioning support",
+    ],
+    image:
+      "/images/products/commercial-solar-water-heater/commercial-solar-water-heater.png",
+  },
+
+  solarHeatpump: {
+    title: "Solar With Air Source Heat Pump",
+    desc: "Integrated solar and heat pump hot water solution for homes.",
+    specs: [
+      "Solar and heat pump integration",
+      "Efficient hot water throughout the year",
+      "Reduced power consumption",
+      "Compact domestic application",
+      "Professional installation support",
+    ],
+    image:
+      "/images/products/solar-with-air-source-heat-pump-domestic/solar-air-source-heat-pump.png",
+  },
+
+  amc: {
+    title: "AMC & Service",
+    desc: "Maintenance and after-sales support for solar and water systems.",
+    specs: [
+      "Preventive maintenance visits",
+      "System inspection and cleaning",
+      "Troubleshooting support",
+      "Genuine replacement components",
+      "Service plans for homes and businesses",
+    ],
+    image: "/images/products/amc-and-service/amc-and-service.png",
   },
 } as const;
 

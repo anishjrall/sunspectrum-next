@@ -9,7 +9,7 @@ const productGroups = [
     title: "Solar solutions",
     description:
       "Solar equipment for residential, commercial and agricultural applications.",
-    products: ["panel", "solar"],
+    products: ["panel", "solar", "commercialSolar"],
   },
   {
     label: "WATER TREATMENT",
@@ -23,14 +23,14 @@ const productGroups = [
     title: "Hot water systems",
     description:
       "Efficient hot-water solutions for homes, institutions and commercial sites.",
-    products: ["heatpump"],
+    products: ["heatpump", "commercialHeatpump", "solarHeatpump"],
   },
   {
     label: "PUMPING",
     title: "Pumping systems",
     description:
       "Solar pumping equipment for agricultural and utility applications.",
-    products: ["pump"],
+    products: ["pump", "amc"],
   },
 ] as const;
 
@@ -150,11 +150,9 @@ export default function ProductsPage() {
 
                 <div
                   className={`grid gap-3 ${
-                    group.products.length === 1
+                    group.products.length === 2
                       ? "grid-cols-1 sm:grid-cols-2"
-                      : group.products.length === 2
-                        ? "grid-cols-1 sm:grid-cols-2"
-                        : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
+                      : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
                   }`}
                 >
                   {group.products.map((slug) => {
