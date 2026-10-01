@@ -62,7 +62,7 @@ export default async function ProductPage({ params }: Props) {
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 52vw"
-                className="object-cover"
+                className={`${slug === "softener" || slug === "commercial" ? "object-contain p-6 sm:p-8" : "object-cover"}`}
               />
 
               <div className="absolute left-3.5 top-3.5 bg-[#073d2d] px-2.5 py-1.5 sm:left-5 sm:top-5 sm:px-3 sm:py-2">
