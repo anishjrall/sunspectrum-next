@@ -1,11 +1,13 @@
+
 "use client";
 
 import { useState } from "react";
 
 export default function FloatingEnquiry() {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [referenceNumber, setReferenceNumber] = useState("");
   const [requirement, setRequirement] = useState("");
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -17,10 +19,11 @@ I would like to make an enquiry.
 
 Name: ${name}
 Phone: ${phone}
+Reference Number: ${referenceNumber}
 Requirement: ${requirement}`;
 
     const whatsappUrl = `https://wa.me/918329298004?text=${encodeURIComponent(
-      message,
+      message
     )}`;
 
     window.open(whatsappUrl, "_blank", "noopener,noreferrer");
@@ -33,44 +36,47 @@ Requirement: ${requirement}`;
         <div
           className="
             fixed
-            bottom-[76px]
+            bottom-[70px]
             right-3
             z-[80]
 
             w-[calc(100vw-24px)]
-            max-w-[305px]
+            max-w-[300px]
 
-            rounded-[14px]
-            border border-black/5
-            bg-white
-            p-3.5
-            text-[#11211a]
-
-            shadow-[0_18px_55px_rgba(8,32,22,.20)]
-
-            max-h-[calc(100dvh-92px)]
+            max-h-[calc(100vh-90px)]
             overflow-y-auto
 
-            sm:right-[25px]
-            sm:bottom-[98px]
-            sm:max-w-[335px]
-            sm:p-[22px]
-            sm:max-h-none
-            sm:overflow-visible
+            rounded-2xl
+            border
+            border-black/5
+            bg-white
+            p-3
+
+            text-[#11211a]
+            shadow-[0_18px_55px_rgba(8,32,22,.20)]
+
+            sm:right-[27px]
+            sm:bottom-[94px]
+            sm:w-[310px]
+            sm:max-w-[310px]
+            sm:max-h-[calc(100vh-120px)]
+            sm:overflow-y-auto
+            sm:rounded-[16px]
+            sm:p-4
           "
         >
           {/* Close */}
           <button
             type="button"
             onClick={() => setOpen(false)}
-            aria-label="Close enquiry popup"
+            aria-label="Close enquiry"
             className="
               absolute
               right-2
               top-2
               grid
-              h-8
-              w-8
+              h-7
+              w-7
               place-items-center
               text-[#66736b]
               transition
@@ -81,7 +87,7 @@ Requirement: ${requirement}`;
           </button>
 
           {/* Brand */}
-          <div className="flex items-center gap-2.5 pr-7">
+          <div className="flex items-center gap-2 pr-6">
             <div
               className="
                 grid
@@ -92,40 +98,17 @@ Requirement: ${requirement}`;
                 rounded-full
                 bg-[#eef1ed]
                 text-[#073d2d]
-
-                sm:h-9
-                sm:w-9
               "
             >
               <MessageIcon />
             </div>
 
             <div>
-              <strong
-                className="
-                  block
-                  text-[13px]
-                  leading-none
-                  tracking-[-.03em]
-
-                  sm:text-[14px]
-                "
-              >
+              <strong className="block text-[13px] font-extrabold leading-none">
                 SunSpectrum
               </strong>
 
-              <span
-                className="
-                  mt-1
-                  block
-                  text-[6px]
-                  font-extrabold
-                  tracking-[.20em]
-                  text-[#78837d]
-
-                  sm:text-[7px]
-                "
-              >
+              <span className="mt-1 block text-[6px] font-extrabold tracking-[.18em] text-[#78837d]">
                 ENERGY · WATER · ENGINEERING
               </span>
             </div>
@@ -134,46 +117,23 @@ Requirement: ${requirement}`;
           {/* Heading */}
           <h3
             className="
-              mt-4
-              text-[18px]
+              mt-3
+              text-[17px]
               font-extrabold
-              leading-[1.1]
-              tracking-[-.04em]
-
-              sm:mt-5
-              sm:text-[20px]
+              leading-tight
+              tracking-[-.03em]
             "
           >
             Have a requirement?
           </h3>
 
-          <p
-            className="
-              mt-1.5
-              text-[11px]
-              leading-[1.5]
-              text-[#657169]
-
-              sm:mt-2
-              sm:text-[13px]
-              sm:leading-[1.6]
-            "
-          >
+          <p className="mt-1 text-[10px] leading-[1.45] text-[#657169]">
             Tell us what you need and we&apos;ll help you find the right
             solution.
           </p>
 
           {/* Services */}
-          <div
-            className="
-              my-3
-              grid
-              gap-1.5
-
-              sm:my-4
-              sm:gap-2
-            "
-          >
+          <div className="my-2.5 grid gap-1">
             {[
               "Solar & energy systems",
               "Water & pumping solutions",
@@ -185,12 +145,9 @@ Requirement: ${requirement}`;
                   flex
                   items-center
                   gap-1.5
-                  text-[10px]
-                  leading-[1.3]
+                  text-[9px]
+                  leading-tight
                   text-[#58655e]
-
-                  sm:gap-2
-                  sm:text-[12px]
                 "
               >
                 <CheckIcon />
@@ -199,8 +156,8 @@ Requirement: ${requirement}`;
             ))}
           </div>
 
-          {/* Enquiry form */}
-          <form onSubmit={handleSubmit} className="grid gap-1.5 sm:gap-2">
+          {/* Form */}
+          <form onSubmit={handleSubmit} className="grid gap-1.5">
             <input
               type="text"
               value={name}
@@ -219,10 +176,6 @@ Requirement: ${requirement}`;
                 outline-none
                 placeholder:text-[#929d96]
                 focus:border-[#073d2d]
-
-                sm:h-11
-                sm:px-3
-                sm:text-[11px]
               "
             />
 
@@ -244,10 +197,26 @@ Requirement: ${requirement}`;
                 outline-none
                 placeholder:text-[#929d96]
                 focus:border-[#073d2d]
+              "
+            />
 
-                sm:h-11
-                sm:px-3
-                sm:text-[11px]
+            <input
+              type="text"
+              value={referenceNumber}
+              onChange={(event) => setReferenceNumber(event.target.value)}
+              placeholder="Reference number (optional)"
+              className="
+                h-9
+                w-full
+                border
+                border-[#d7ddd8]
+                bg-[#fafbf9]
+                px-2.5
+                text-[10px]
+                text-[#11211a]
+                outline-none
+                placeholder:text-[#929d96]
+                focus:border-[#073d2d]
               "
             />
 
@@ -266,15 +235,11 @@ Requirement: ${requirement}`;
                 px-2.5
                 py-2
                 text-[10px]
-                leading-[1.4]
+                leading-[1.35]
                 text-[#11211a]
                 outline-none
                 placeholder:text-[#929d96]
                 focus:border-[#073d2d]
-
-                sm:px-3
-                sm:py-2.5
-                sm:text-[11px]
               "
             />
 
@@ -282,7 +247,7 @@ Requirement: ${requirement}`;
               type="submit"
               className="
                 flex
-                min-h-10
+                min-h-9
                 items-center
                 justify-center
                 gap-1.5
@@ -290,15 +255,11 @@ Requirement: ${requirement}`;
                 px-2
                 text-[9px]
                 font-extrabold
-                tracking-[.04em]
+                tracking-[.03em]
                 text-white
                 uppercase
                 transition
                 hover:bg-[#0b4b38]
-
-                sm:min-h-12
-                sm:gap-2
-                sm:text-[10px]
               "
             >
               <MessageIcon small />
@@ -306,72 +267,52 @@ Requirement: ${requirement}`;
             </button>
           </form>
 
-          {/* Call */}
-          <a
-            href="tel:+918329298004"
-            className="
-              mt-1.5
-              flex
-              min-h-10
-              items-center
-              justify-center
-              gap-1.5
-              border
-              border-[#d7ddd8]
-              text-[10px]
-              font-extrabold
-              text-[#073d2d]
-              transition
-              hover:bg-[#f5f7f4]
+          {/* Call buttons */}
+          <div className="mt-1.5 grid grid-cols-2 gap-1.5">
+            <a
+              href="tel:+918329298004"
+              className="
+                flex
+                min-h-9
+                items-center
+                justify-center
+                gap-1
+                border
+                border-[#d7ddd8]
+                text-[9px]
+                font-extrabold
+                text-[#073d2d]
+                transition
+                hover:bg-[#f5f7f4]
+              "
+            >
+              <PhoneIcon />
+              Call us
+            </a>
 
-              sm:mt-2
-              sm:min-h-12
-              sm:gap-2
-              sm:text-[11px]
-            "
-          >
-            <PhoneIcon />
-            Call us
-          </a>
+            <a
+              href="tel:+917353131310"
+              className="
+                flex
+                min-h-9
+                items-center
+                justify-center
+                gap-1
+                border
+                border-[#d7ddd8]
+                text-[9px]
+                font-extrabold
+                text-[#073d2d]
+                transition
+                hover:bg-[#f5f7f4]
+              "
+            >
+              <PhoneIcon />
+              73531 31310
+            </a>
+          </div>
 
-          <a
-            href="tel:+917353131310"
-            className="
-              mt-1.5
-              flex
-              min-h-10
-              items-center
-              justify-center
-              gap-1.5
-              border
-              border-[#d7ddd8]
-              text-[10px]
-              font-extrabold
-              text-[#073d2d]
-              transition
-              hover:bg-[#f5f7f4]
-
-              sm:mt-2
-              sm:min-h-12
-              sm:gap-2
-              sm:text-[11px]
-            "
-          >
-            <PhoneIcon />
-            +91 73531 31310
-          </a>
-
-          <p
-            className="
-              mt-2
-              text-center
-              text-[8px]
-              text-[#8a938e]
-
-              sm:mt-3
-              sm:text-[10px]
-            "
-          >
+          <p className="mt-1.5 text-center text-[7px] text-[#8a938e]">
             Usually replies quickly
           </p>
         </div>
@@ -437,8 +378,8 @@ function MessageIcon({ small = false }: { small?: boolean }) {
 function PhoneIcon() {
   return (
     <svg
-      width="15"
-      height="15"
+      width="13"
+      height="13"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -455,8 +396,8 @@ function PhoneIcon() {
 function CheckIcon() {
   return (
     <svg
-      width="13"
-      height="13"
+      width="12"
+      height="12"
       viewBox="0 0 24 24"
       fill="none"
       stroke="#20a267"
@@ -474,8 +415,8 @@ function CheckIcon() {
 function CloseIcon() {
   return (
     <svg
-      width="17"
-      height="17"
+      width="16"
+      height="16"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"

@@ -40,7 +40,7 @@ export default function Projects() {
                         ? "(max-width: 1024px) 100vw, 55vw"
                         : "(max-width: 1024px) 100vw, 40vw"
                     }
-                    className="object-cover transition duration-700 group-hover:scale-[1.035]"
+                    className={`${project.image.includes("softener") ? "bg-[#eef1ed] object-contain" : "object-cover"} transition duration-700 group-hover:scale-[1.035]`}
                   />
 
                   <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
