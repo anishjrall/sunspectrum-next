@@ -29,30 +29,14 @@ export default function Products() {
         </div>
 
         {/* Product cards */}
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-[15px]">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-[15px]">
           {items.map(([slug, product], index) => (
             <Link
               href={`/products/${slug}`}
               key={slug}
-              className={`group overflow-hidden bg-white ${
-                index === 0 ? "sm:col-span-2" : ""
-              }`}
+              className="group overflow-hidden bg-white"
             >
-              <div
-                className={`
-                  relative
-                  min-h-[290px]
-                  overflow-hidden
-
-                  sm:min-h-[285px]
-
-                  ${
-                    index === 0
-                      ? "sm:min-h-[460px] lg:min-h-[585px]"
-                      : ""
-                  }
-                `}
-              >
+              <div className="relative aspect-[4/3] overflow-hidden">
                 {/* Image */}
                 <Image
                   src={product.image}
