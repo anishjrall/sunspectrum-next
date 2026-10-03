@@ -5,3 +5,7 @@ dist
 npm-debug.log*
 .env*
 .DS_Store
+public/images/WhatsApp Unknown */
+.env.local
+.env
+.env.*.local

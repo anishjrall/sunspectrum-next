@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
 import { projects } from "@/lib/data";
+import ProjectGallery from "@/components/home/ProjectGallery";
 
 export default function Projects() {
   return (
@@ -10,6 +11,7 @@ export default function Projects() {
     >
       <div className="mx-auto w-[calc(100%-28px)] max-w-[1320px] sm:w-[calc(100%-32px)]">
         <Heading />
+        <ProjectGallery cloudName={process.env.CLOUDINARY_CLOUD_NAME} />
 
         <div className="space-y-3.5 sm:space-y-4">
           {projects.map((project, index) => {
