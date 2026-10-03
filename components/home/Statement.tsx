@@ -1,6 +1,9 @@
 export default function Statement() {
   return (
-    <section className="border-y border-[#dce2dc] bg-[#f8f8f4] py-14 sm:py-[78px] lg:py-[95px]">
+    <section
+      id="about"
+      className="border-y border-[#dce2dc] bg-[#f8f8f4] py-14 sm:py-[78px] lg:py-[95px]"
+    >
       <div className="mx-auto grid w-[calc(100%-28px)] max-w-[1320px] gap-7 sm:w-[calc(100%-32px)] sm:gap-7 lg:grid-cols-[.65fr_1.35fr] lg:gap-20">
         {/* Label */}
         <div>

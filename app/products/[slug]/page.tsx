@@ -4,14 +4,13 @@ import { notFound } from "next/navigation";
 import {
   ArrowLeftIcon,
   ArrowRightIcon,
-  ArrowUpRightIcon,
   CheckCircleIcon,
   PhoneIcon,
-  ChatBubbleLeftRightIcon,
   ShieldCheckIcon,
 } from "@heroicons/react/24/outline";
 
-import { products, type ProductSlug } from "@/lib/data";
+import { products, site, type ProductSlug } from "@/lib/data";
+import ProductEnquiryActions from "@/components/ProductEnquiryActions";
 
 type Props = {
   params: Promise<{
@@ -111,7 +110,7 @@ export default async function ProductPage({ params }: Props) {
               {/* ACTIONS */}
               <div className="mt-5 grid grid-cols-1 gap-2 sm:flex">
                 <a
-                  href="tel:+918329298004"
+                  href={site.phoneHref}
                   className="inline-flex min-h-11 items-center justify-center gap-2 bg-[#073d2d] px-5 text-[10px] font-extrabold tracking-[.07em] text-white uppercase transition hover:bg-[#0b4b38]"
                 >
                   <PhoneIcon className="h-4 w-4" />
@@ -119,23 +118,14 @@ export default async function ProductPage({ params }: Props) {
                 </a>
 
                 <a
-                  href="tel:+917353131310"
+                  href={site.secondaryPhoneHref}
                   className="inline-flex min-h-11 items-center justify-center gap-2 border border-[#cfd7d1] bg-white px-5 text-[10px] font-extrabold tracking-[.07em] text-[#073d2d] uppercase transition hover:border-[#073d2d]"
                 >
                   <PhoneIcon className="h-4 w-4" />
-                  +91 73531 31310
+                  {site.secondaryPhone}
                 </a>
 
-                <a
-                  href="https://wa.me/918329298004"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex min-h-11 items-center justify-center gap-2 border border-[#cfd7d1] bg-white px-5 text-[10px] font-extrabold tracking-[.07em] text-[#073d2d] uppercase transition hover:border-[#073d2d]"
-                >
-                  <ChatBubbleLeftRightIcon className="h-4 w-4" />
-                  WhatsApp
-                  <ArrowUpRightIcon className="h-3.5 w-3.5" />
-                </a>
+                <ProductEnquiryActions productName={product.title} />
               </div>
 
               {/* SUPPORT NOTE */}
@@ -302,7 +292,7 @@ export default async function ProductPage({ params }: Props) {
 
           <div className="grid shrink-0 grid-cols-1 gap-2 sm:flex">
             <a
-              href="tel:+918329298004"
+              href={site.phoneHref}
               className="inline-flex min-h-11 items-center justify-center gap-2 bg-[#073d2d] px-5 text-[10px] font-extrabold tracking-[.07em] text-white uppercase"
             >
               <PhoneIcon className="h-4 w-4" />

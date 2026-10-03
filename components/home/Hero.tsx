@@ -56,12 +56,12 @@ export default function Hero() {
               <ArrowRight size={17} />
             </Link>
 
-            <Link
+            <a
               href="#contact"
               className="inline-flex min-h-12 w-full items-center justify-center border border-white/55 px-5 text-[10px] font-extrabold tracking-[.06em] text-white uppercase transition hover:bg-white/10 sm:w-auto sm:px-[22px]"
             >
               Get a quote
-            </Link>
+            </a>
           </div>
         </div>
 

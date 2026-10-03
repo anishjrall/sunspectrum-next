@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { site } from "@/lib/data";
 
 export default function SiteFooter() {
   return (
@@ -63,16 +64,12 @@ export default function SiteFooter() {
         {/* Contact */}
 <div className="col-span-2 lg:col-span-1">
   <FooterCol title="Contact">
-    <a href="tel:+918329298004">
-      +91 83292 98004
-    </a>
+    <a href={site.phoneHref}>{site.phone}</a>
 
-    <a href="tel:+917353131310">
-      +91 73531 31310
-    </a>
+    <a href={site.secondaryPhoneHref}>{site.secondaryPhone}</a>
 
     <a
-      href="https://wa.me/918329298004"
+      href={site.whatsapp}
       target="_blank"
       rel="noreferrer"
     >
@@ -90,13 +87,9 @@ export default function SiteFooter() {
       </span>
 
       <p className="mt-1.5 text-[11px] leading-[1.65] text-white/40">
-        1088, 6th Main, E and F Block,
+        {site.address}
         <br />
-        Ramakrishna Nagar,
-        <br />
-        Mysore - 570022
-        <br />
-        Near Andolana Circle
+        Landmark: {site.landmark}
       </p>
 
       {/* Mini Map */}

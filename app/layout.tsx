@@ -4,6 +4,7 @@ import "./globals.css";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { site } from "@/lib/data";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -46,7 +47,7 @@ export default function RootLayout({
     "@type": "LocalBusiness",
     name: "Sunspectrum Enterprises",
     url: "https://sunspectrumenterprises.in",
-    telephone: ["+918329298004", "+917353131310"],
+    telephone: [site.phone, site.secondaryPhone],
     email: "sunspectrum01@gmail.com",
 
     address: {

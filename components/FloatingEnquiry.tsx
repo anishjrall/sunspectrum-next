@@ -1,32 +1,63 @@
 
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { site } from "@/lib/data";
+import { createEnquiryMessage } from "@/lib/enquiry";
 
 export default function FloatingEnquiry() {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-  const [referenceNumber, setReferenceNumber] = useState("");
   const [requirement, setRequirement] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const submittingRef = useRef(false);
+  const [phoneError, setPhoneError] = useState("");
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    const message = `Hello SunSpectrum Enterprises,
+    const normalizedName = name.trim();
+    const normalizedPhone = phone.trim();
+    const normalizedRequirement = requirement.trim();
 
-I would like to make an enquiry.
+    if (
+      submittingRef.current
+    ) {
+      return;
+    }
 
-Name: ${name}
-Phone: ${phone}
-Reference Number: ${referenceNumber}
-Requirement: ${requirement}`;
+    if (!normalizedPhone || !/^[6-9]\d{9}$/.test(normalizedPhone)) {
+      setPhoneError("Enter a valid 10-digit Indian mobile number.");
+      return;
+    }
 
-    const whatsappUrl = `https://wa.me/918329298004?text=${encodeURIComponent(
-      message
-    )}`;
+    if (!normalizedName || !normalizedRequirement) {
+      return;
+    }
 
-    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    submittingRef.current = true;
+    setSubmitting(true);
+
+    const message = createEnquiryMessage([
+      ["Name", normalizedName],
+      ["Phone", normalizedPhone],
+      ["Requirement", normalizedRequirement],
+    ]);
+
+    const submitter = (event.nativeEvent as SubmitEvent).submitter;
+    const channel =
+      submitter?.getAttribute("value") === "sms" ? "sms" : "whatsapp";
+    const enquiryUrl =
+      channel === "sms"
+        ? `${site.sms}?body=${encodeURIComponent(message)}`
+        : `${site.whatsapp}?text=${encodeURIComponent(message)}`;
+
+    if (channel === "sms") {
+      window.location.href = enquiryUrl;
+    } else {
+      window.open(enquiryUrl, "_blank", "noopener,noreferrer");
+    }
   }
 
   return (
@@ -182,9 +213,13 @@ Requirement: ${requirement}`;
             <input
               type="tel"
               value={phone}
-              onChange={(event) => setPhone(event.target.value)}
+              onChange={(event) => {
+                setPhone(event.target.value);
+                setPhoneError("");
+              }}
               placeholder="Phone number"
               required
+              inputMode="numeric"
               className="
                 h-9
                 w-full
@@ -199,26 +234,11 @@ Requirement: ${requirement}`;
                 focus:border-[#073d2d]
               "
             />
-
-            <input
-              type="text"
-              value={referenceNumber}
-              onChange={(event) => setReferenceNumber(event.target.value)}
-              placeholder="Reference number (optional)"
-              className="
-                h-9
-                w-full
-                border
-                border-[#d7ddd8]
-                bg-[#fafbf9]
-                px-2.5
-                text-[10px]
-                text-[#11211a]
-                outline-none
-                placeholder:text-[#929d96]
-                focus:border-[#073d2d]
-              "
-            />
+            {phoneError && (
+              <p className="text-[9px] text-red-700" role="alert">
+                {phoneError}
+              </p>
+            )}
 
             <textarea
               value={requirement}
@@ -245,6 +265,8 @@ Requirement: ${requirement}`;
 
             <button
               type="submit"
+              value="whatsapp"
+              disabled={submitting}
               className="
                 flex
                 min-h-9
@@ -265,12 +287,38 @@ Requirement: ${requirement}`;
               <MessageIcon small />
               Send Enquiry on WhatsApp
             </button>
+
+            <button
+              type="submit"
+              value="sms"
+              disabled={submitting}
+              className="
+                flex
+                min-h-9
+                items-center
+                justify-center
+                gap-1.5
+                border
+                border-[#d7ddd8]
+                px-2
+                text-[9px]
+                font-extrabold
+                tracking-[.03em]
+                text-[#073d2d]
+                uppercase
+                transition
+                hover:bg-[#f5f7f4]
+              "
+            >
+              <MessageIcon small />
+              Send Enquiry by SMS
+            </button>
           </form>
 
           {/* Call buttons */}
           <div className="mt-1.5 grid grid-cols-2 gap-1.5">
             <a
-              href="tel:+918329298004"
+              href={site.phoneHref}
               className="
                 flex
                 min-h-9
@@ -291,7 +339,7 @@ Requirement: ${requirement}`;
             </a>
 
             <a
-              href="tel:+917353131310"
+              href={site.secondaryPhoneHref}
               className="
                 flex
                 min-h-9
@@ -308,7 +356,7 @@ Requirement: ${requirement}`;
               "
             >
               <PhoneIcon />
-              73531 31310
+              {site.secondaryPhone}
             </a>
           </div>
 

@@ -5,10 +5,11 @@ export const site = {
   secondaryPhone: "+91 73531 31310",
   secondaryPhoneHref: "tel:+917353131310",
   whatsapp: "https://wa.me/918329298004",
+  sms: "sms:+918329298004",
   email: "sunspectrum01@gmail.com",
   maps: "https://maps.google.com/maps?q=12.2840129%2C76.6166227&z=17&hl=en",
   address:
-    "1088, 6th Main, E and F Block, Ramakrishna Nagar, Mysore - 570022",
+    "1088, 6th Main, E and F Block, Ramakrishna Nagar, Mysore – 570022",
   landmark: "Near Andolana Circle",
   hours: "Monday to Saturday, 9:00 AM to 8:00 PM",
 };

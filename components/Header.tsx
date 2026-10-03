@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { site } from "@/lib/data";
 
 const logoPath = "/images/logo/sunspectrum-enterprises-logo.png";
 
@@ -20,6 +21,21 @@ export default function SiteHeader() {
 
   function closeMenu() {
     setMenuOpen(false);
+  }
+
+  function handleQuoteClick(event: React.MouseEvent<HTMLAnchorElement>) {
+    closeMenu();
+
+    if (window.location.pathname !== "/") {
+      return;
+    }
+
+    event.preventDefault();
+    window.history.pushState(null, "", "/#contact");
+    document.getElementById("contact")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   }
 
   return (
@@ -40,9 +56,9 @@ export default function SiteHeader() {
           </div>
 
           <div className="flex shrink-0 items-center gap-2 text-[8px] font-bold tracking-[.04em] sm:gap-3 sm:text-[10px] sm:tracking-[.08em]">
-            <a href="tel:+918329298004">+91 83292 98004</a>
+            <a href={site.phoneHref}>{site.phone}</a>
             <span className="text-[#d6ad58]">·</span>
-            <a href="tel:+917353131310">+91 73531 31310</a>
+            <a href={site.secondaryPhoneHref}>{site.secondaryPhone}</a>
           </div>
         </div>
       </div>
@@ -159,6 +175,7 @@ export default function SiteHeader() {
           {/* Desktop quote */}
           <Link
             href="/#contact"
+            onClick={handleQuoteClick}
             className="
               hidden
               min-h-12
@@ -185,7 +202,7 @@ export default function SiteHeader() {
             {/* Quote */}
             <Link
               href="/#contact"
-              onClick={closeMenu}
+              onClick={handleQuoteClick}
               className="
                 inline-flex
                 min-h-9
