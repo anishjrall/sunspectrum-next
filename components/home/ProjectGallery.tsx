@@ -4,9 +4,26 @@ import Image from "next/image";
 import { useState } from "react";
 import { PlayIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
-const imageCount = 59;
-const videoCount = 33;
 type MediaItem = { type: "image" | "video"; src: string };
+
+function createMedia(
+  type: MediaItem["type"],
+  start: number,
+  end: number,
+  cloudName: string,
+) {
+  return Array.from({ length: end - start + 1 }, (_, index) => {
+    const publicId = `media-${String(start + index).padStart(3, "0")}`;
+    const resourceType = type === "image" ? "image" : "video";
+    const transformations =
+      type === "image" ? "f_auto,q_auto,w_1400" : "q_auto";
+
+    return {
+      type,
+      src: `https://res.cloudinary.com/${cloudName}/${resourceType}/upload/${transformations}/sunspectrum/project-gallery/${publicId}`,
+    };
+  });
+}
 
 export default function ProjectGallery({ cloudName }: { cloudName?: string }) {
   const [open, setOpen] = useState(false);
@@ -15,14 +32,10 @@ export default function ProjectGallery({ cloudName }: { cloudName?: string }) {
   }
 
   const media: MediaItem[] = [
-    ...Array.from({ length: imageCount }, (_, index) => ({
-      type: "image" as const,
-      src: `https://res.cloudinary.com/${cloudName}/image/upload/f_auto,q_auto,w_1400/sunspectrum/project-gallery/media-${String(index + 1).padStart(3, "0")}`,
-    })),
-    ...Array.from({ length: videoCount }, (_, index) => ({
-      type: "video" as const,
-      src: `https://res.cloudinary.com/${cloudName}/video/upload/q_auto/sunspectrum/project-gallery/media-${String(imageCount + index + 1).padStart(3, "0")}`,
-    })),
+    ...createMedia("image", 1, 59, cloudName),
+    ...createMedia("image", 93, 236, cloudName),
+    ...createMedia("video", 60, 92, cloudName),
+    ...createMedia("video", 178, 225, cloudName),
   ];
 
   return (
