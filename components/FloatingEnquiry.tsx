@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { site } from "@/lib/data";
 import { createEnquiryMessage } from "@/lib/enquiry";
 
@@ -13,6 +13,10 @@ export default function FloatingEnquiry() {
   const [submitting, setSubmitting] = useState(false);
   const submittingRef = useRef(false);
   const [phoneError, setPhoneError] = useState("");
+
+  useEffect(() => {
+    setOpen(true);
+  }, []);
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
