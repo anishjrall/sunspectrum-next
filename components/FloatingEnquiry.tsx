@@ -9,6 +9,7 @@ export default function FloatingEnquiry() {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [referenceNumber, setReferenceNumber] = useState("");
   const [requirement, setRequirement] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const submittingRef = useRef(false);
@@ -23,6 +24,7 @@ export default function FloatingEnquiry() {
 
     const normalizedName = name.trim();
     const normalizedPhone = phone.trim();
+    const normalizedReferenceNumber = referenceNumber.trim();
     const normalizedRequirement = requirement.trim();
 
     if (
@@ -36,7 +38,11 @@ export default function FloatingEnquiry() {
       return;
     }
 
-    if (!normalizedName || !normalizedRequirement) {
+    if (
+      !normalizedName ||
+      !normalizedReferenceNumber ||
+      !normalizedRequirement
+    ) {
       return;
     }
 
@@ -46,6 +52,7 @@ export default function FloatingEnquiry() {
     const message = createEnquiryMessage([
       ["Name", normalizedName],
       ["Phone", normalizedPhone],
+      ["Reference number", normalizedReferenceNumber],
       ["Requirement", normalizedRequirement],
     ]);
 
@@ -243,6 +250,27 @@ export default function FloatingEnquiry() {
                 {phoneError}
               </p>
             )}
+
+            <input
+              type="text"
+              value={referenceNumber}
+              onChange={(event) => setReferenceNumber(event.target.value)}
+              placeholder="Reference number"
+              required
+              className="
+                h-9
+                w-full
+                border
+                border-[#d7ddd8]
+                bg-[#fafbf9]
+                px-2.5
+                text-[10px]
+                text-[#11211a]
+                outline-none
+                placeholder:text-[#929d96]
+                focus:border-[#073d2d]
+              "
+            />
 
             <textarea
               value={requirement}
